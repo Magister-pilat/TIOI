@@ -25,4 +25,4 @@ def interim_results(facts, rules):
                   if counter == count:
                            interim_results.append({facts:i['then']})
               
-                  
+    return interim_results      
