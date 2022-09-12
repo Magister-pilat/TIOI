@@ -11,5 +11,10 @@ def interim_results(facts, rules):
               if j == 'and':
                   count = len(i['if'][j])
                   counter = 0
-                  for a in facts:      
-                          
+                  for a in facts:
+                       if a in i['if'][j]:     
+                           counter = counter +1
+                  if counter == count:
+                           interim_results.append({facts:i['then']})
+              
+                  
