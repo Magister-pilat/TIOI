@@ -8,5 +8,8 @@ def interim_results(facts, rules):
                        if a in i['if'][j]:
                            interim_results.append({facts:i['then']})
                            break
-
+              if j == 'and':
+                 count = len()
+                 counter = 0
+                       
                           
