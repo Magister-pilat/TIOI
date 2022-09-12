@@ -16,5 +16,13 @@ def interim_results(facts, rules):
                            counter = counter +1
                   if counter == count:
                            interim_results.append({facts:i['then']})
+              if j == 'not':
+                  count = len(i['if'][j])
+                  counter = 0
+                  for a in facts:
+                       if a not in i['if'][j]:     
+                           counter = counter +1
+                  if counter == count:
+                           interim_results.append({facts:i['then']})
               
                   
