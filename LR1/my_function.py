@@ -9,7 +9,7 @@ def interim_results(facts, rules):
                            interim_results.append({facts:i['then']})
                            break
               if j == 'and':
-                 count = len()
-                 counter = 0
-                       
+                  count = len(i['if'][j])
+                  counter = 0
+                  for a in facts:      
                           
