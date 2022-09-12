@@ -6,5 +6,7 @@ def interim_results(facts, rules):
               if j == 'or':
                   for a in facts:
                        if a in i['if'][j]:
-                           interim_results.append
+                           interim_results.append({facts:i['then']})
+                           break
+
                           
