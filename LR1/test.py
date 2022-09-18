@@ -108,14 +108,14 @@ def results(facts, rules):
     return interim_results 
 
 time_start = time()
-N = 100000
-M = 1000
-rules = generate_simple_rules(100, 4, N)
-facts = generate_rand_facts(100, M)
-print("%d rules generated in %f seconds" % (N,time()-time_start))
+#N = 100000
+#M = 1000
+rules = generate_simple_rules(100, 4, 10000)
+facts = generate_rand_facts(100, 1000)
+print("%d rules generated in %f seconds" % (1000,time()-time_start))
 
 time_start = time()
-
-results(facts, rules)
+in_res = results(facts, rules)
 rez = time()-time_start
-print("%d facts validated vs %d rules in %f seconds" % (M,N,rez))
+print(rez)
+print("%d facts validated vs %d rules in %f seconds" % (1000,10000,rez))
