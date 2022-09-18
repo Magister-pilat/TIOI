@@ -14,6 +14,8 @@ def interim_results(facts, rules):
                   for a in i['if'][j]:
                        if a in facts:     
                            counter = counter +1
+                       else:
+                           break
                   if counter == count:
                            interim_results.append({facts:i['then']})
               if j == 'not':
@@ -22,6 +24,8 @@ def interim_results(facts, rules):
                   for a in i['if'][j]:
                        if a not in facts:     
                            counter = counter +1
+                       else:
+                           break
                   if counter == count:
                            interim_results.append({facts:i['then']})
               
