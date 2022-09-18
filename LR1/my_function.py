@@ -6,7 +6,7 @@ def interim_results(facts, rules):
               if j == 'or':
                   for a in i['if'][j]:
                        if a in facts:
-                           interim_results.append({facts:i['then']})
+                           interim_results.append([facts,i['then']])
                            break
               if j == 'and':
                   count = len(i['if'][j])
@@ -17,7 +17,7 @@ def interim_results(facts, rules):
                        else:
                            break
                   if counter == count:
-                           interim_results.append({facts:i['then']})
+                           interim_results.append([facts,i['then']])
               if j == 'not':
                   count = len(i['if'][j])
                   counter = 0
@@ -27,6 +27,6 @@ def interim_results(facts, rules):
                        else:
                            break
                   if counter == count:
-                           interim_results.append({facts:i['then']})
+                           interim_results.append([facts,i['then']])
               
     return interim_results      
