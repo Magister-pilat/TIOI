@@ -1,5 +1,5 @@
 # TIOI LR1
-  В папке LR1 присутствуют несколько файлов: generate_and_evaluate.py, my_function.py, Dockerfile и test.py. 
+###  В папке LR1 присутствуют несколько файлов: generate_and_evaluate.py, my_function.py, Dockerfile и test.py. 
   В файле generate_and_evaluate.py содержатся исходные функции генерации правил и фактов. 
   В файле my_function.py содержатся функции interim_results и results, возвращающие соответственно промежуточные результаты применения правил к фактам без обработки исключения и правила, прошедшие через исключения.
   В файле Dockerfile описана инструкция для Dockerfile, необходимая для построения соответсвующего docker-образа.
