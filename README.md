@@ -6,4 +6,4 @@
 <p>  В файле test.py опсан код, необходимый для тестирования и измерния скорости работы функции генерации правил.</p>
 <h3>Подсказка для Docker:</h3> 
 <p>Для создания Docker-образа необходимо в командной строке прописать следующие команды: </p>
-<blocquote> sudo docker build -t name .</blocquote>
+<blockquote> sudo docker build -t name .</blockquote>
