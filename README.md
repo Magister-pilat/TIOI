@@ -8,3 +8,6 @@
 <p>Для создания Docker-образа необходимо в командной строке прописать следующие команды: </p>
 <blockquote> sudo docker build -t name .</blockquote>
 <p>где &quot;name&quot; это имя, которое Вы хотите задать Docker-образу, а &quot;.&quot; это каталог в котором расположен Ваш Dockerfile. </p>
+<p>Для запуска Вашего Docker-образа необходимо в командной строке прописать следующие команды:</p>
+<blockquote> sudo docker run  name </blockquote>
+<p>где &quot;name&quot; это имя, которое Вы задали Docker-образу. </p>
