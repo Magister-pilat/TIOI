@@ -1,5 +1,12 @@
-
+""" In this file contains function 'results'"""
 def results(facts, rules):
+    """
+        This function returns new rules!
+        Args:
+             List of facts and statements
+        Returns:
+             New rules
+        """
     fact = set(facts)
     interim_results = []
     for i in rules:
@@ -10,7 +17,8 @@ def results(facts, rules):
                     if atr in fact:
                         # interim_results.append([facts,i['then']])
                         if len(interim_results) == 0:
-                            interim_results.append({'if': facts, 'or': i['if'][j], 'then': i['then']})
+                            interim_results.append({'if': facts, 'or': i['if'][j],
+                                                    'then': i['then']})
                             break
                         else:
                             put = True
@@ -25,7 +33,8 @@ def results(facts, rules):
                                         put = False
                                         break
                             if put is True:
-                                interim_results.append({'if': facts, 'or': i['if'][j], 'then': i['then']})
+                                interim_results.append({'if': facts, 'or': i['if'][j],
+                                                        'then': i['then']})
             if j == 'and':
                 count = len(i['if'][j])
                 counter = 0
@@ -48,7 +57,8 @@ def results(facts, rules):
                                     put = False
                                     break
                         if put is True:
-                            interim_results.append({'if': facts, 'and': i['if'][j], 'then': i['then']})
+                            interim_results.append({'if': facts, 'and': i['if'][j],
+                                                    'then': i['then']})
 
             if j == 'not':
                 count = len(i['if'][j])
@@ -72,7 +82,8 @@ def results(facts, rules):
                                     put = False
                                     break
                         if put is True:
-                            interim_results.append({'if': facts, 'not': i['if'][j], 'then': i['then']})
+                            interim_results.append({'if': facts, 'not': i['if'][j],
+                                                    'then': i['then']})
 
     return interim_results
 
