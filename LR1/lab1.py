@@ -143,14 +143,14 @@ def results(facts, rules):
 time_start = time()
 #N = 100000
 #M = 1000
-rules = generate_simple_rules(100, 4, 10)
-print(rules,'\n')
-facts = generate_rand_facts(100, 5)
-#print("%d rules generated in %f seconds" % (1000,time()-time_start))
-print(facts,'\n')
+rules = generate_simple_rules(100, 4, 10000)
+#print(rules,'\n')
+facts = generate_rand_facts(100, 1000)
+print("%d rules generated in %f seconds" % (1000,time()-time_start))
+#print(facts,'\n')
 time_start = time()
 in_res = results(facts, rules)
 rez = time()-time_start
 #print(rez)
-print(in_res,'\n')
-#print("%d facts validated vs %d rules in %f seconds" % (1000,10000,rez))
+#print(in_res,'\n')
+print("%d facts validated vs %d rules in %f seconds" % (1000,10000,rez))
