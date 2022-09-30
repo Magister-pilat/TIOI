@@ -1,4 +1,3 @@
-""" In this file contains function 'results'"""
 def results(facts, rules):
     """
         This function returns new rules!
@@ -17,8 +16,11 @@ def results(facts, rules):
                     if atr in fact:
                         # interim_results.append([facts,i['then']])
                         if len(interim_results) == 0:
-                            interim_results.append({'if': facts, 'or': i['if'][j],
+                            fac = facts.copy()
+                            interim_results.append({'if': fac, 'or': i['if'][j],
                                                     'then': i['then']})
+                            facts.append(i['then'])
+                            fact.add(i['then'])
                             break
                         else:
                             put = True
@@ -33,8 +35,11 @@ def results(facts, rules):
                                         put = False
                                         break
                             if put is True:
-                                interim_results.append({'if': facts, 'or': i['if'][j],
+                                fac = facts.copy()
+                                interim_results.append({'if': fac, 'or': i['if'][j],
                                                         'then': i['then']})
+                                facts.append(i['then'])
+                                fact.add(i['then'])
             if j == 'and':
                 count = len(i['if'][j])
                 counter = 0
@@ -47,7 +52,10 @@ def results(facts, rules):
                 if counter == count:
                     # interim_results.append([facts,i['then']])
                     if len(interim_results) == 0:
-                        interim_results.append({'if': facts, 'and': i['if'][j], 'then': i['then']})
+                        fac = facts.copy()
+                        interim_results.append({'if': fac, 'and': i['if'][j], 'then': i['then']})
+                        facts.append(i['then'])
+                        fact.add(i['then'])
                     else:
                         put = True
                         for mer in interim_results:
@@ -57,8 +65,11 @@ def results(facts, rules):
                                     put = False
                                     break
                         if put is True:
-                            interim_results.append({'if': facts, 'and': i['if'][j],
+                            fac = facts.copy()
+                            interim_results.append({'if': fac, 'and': i['if'][j],
                                                     'then': i['then']})
+                            facts.append(i['then'])
+                            fact.add(i['then'])
 
             if j == 'not':
                 count = len(i['if'][j])
@@ -72,7 +83,10 @@ def results(facts, rules):
                 if counter == count:
                     # interim_results.append([facts,i['then']])
                     if len(interim_results) == 0:
-                        interim_results.append({'if': facts, 'not': i['if'][j], 'then': i['then']})
+                        fac = facts.copy()
+                        interim_results.append({'if': fac, 'not': i['if'][j], 'then': i['then']})
+                        facts.append(i['then'])
+                        fact.add(i['then'])
                     else:
                         put = True
                         for mer in interim_results:
@@ -82,9 +96,10 @@ def results(facts, rules):
                                     put = False
                                     break
                         if put is True:
-                            interim_results.append({'if': facts, 'not': i['if'][j],
-                                                    'then': i['then']})
+                            fac = facts.copy()
+                            interim_results.append({'if': fac, 'not': i['if'][j], 'then': i['then']})
+                            facts.append(i['then'])
+                            fact.add(i['then'])
 
     return interim_results
-
 
