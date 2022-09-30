@@ -52,8 +52,11 @@ def results(facts, rules):
                     if atr in fact:
                         # interim_results.append([facts,i['then']])
                         if len(interim_results) == 0:
-                            interim_results.append({'if': facts, 'or': i['if'][j],
+                            fac = facts.copy()
+                            interim_results.append({'if': fac, 'or': i['if'][j],
                                                     'then': i['then']})
+                            facts.append(i['then'])
+                            fact.add(i['then'])
                             break
                         else:
                             put = True
@@ -68,8 +71,11 @@ def results(facts, rules):
                                         put = False
                                         break
                             if put is True:
-                                interim_results.append({'if': facts, 'or': i['if'][j],
+                                fac = facts.copy()
+                                interim_results.append({'if': fac, 'or': i['if'][j],
                                                         'then': i['then']})
+                                facts.append(i['then'])
+                                fact.add(i['then'])
             if j == 'and':
                 count = len(i['if'][j])
                 counter = 0
@@ -82,7 +88,10 @@ def results(facts, rules):
                 if counter == count:
                     # interim_results.append([facts,i['then']])
                     if len(interim_results) == 0:
-                        interim_results.append({'if': facts, 'and': i['if'][j], 'then': i['then']})
+                        fac = facts.copy()
+                        interim_results.append({'if': fac, 'and': i['if'][j], 'then': i['then']})
+                        facts.append(i['then'])
+                        fact.add(i['then'])
                     else:
                         put = True
                         for mer in interim_results:
@@ -92,8 +101,11 @@ def results(facts, rules):
                                     put = False
                                     break
                         if put is True:
-                            interim_results.append({'if': facts, 'and': i['if'][j],
+                            fac = facts.copy()
+                            interim_results.append({'if': fac, 'and': i['if'][j],
                                                     'then': i['then']})
+                            facts.append(i['then'])
+                            fact.add(i['then'])
 
             if j == 'not':
                 count = len(i['if'][j])
@@ -107,7 +119,10 @@ def results(facts, rules):
                 if counter == count:
                     # interim_results.append([facts,i['then']])
                     if len(interim_results) == 0:
-                        interim_results.append({'if': facts, 'not': i['if'][j], 'then': i['then']})
+                        fac = facts.copy()
+                        interim_results.append({'if': fac, 'not': i['if'][j], 'then': i['then']})
+                        facts.append(i['then'])
+                        fact.add(i['then'])
                     else:
                         put = True
                         for mer in interim_results:
@@ -117,7 +132,10 @@ def results(facts, rules):
                                     put = False
                                     break
                         if put is True:
-                            interim_results.append({'if': facts, 'not': i['if'][j], 'then': i['then']})
+                            fac = facts.copy()
+                            interim_results.append({'if': fac, 'not': i['if'][j], 'then': i['then']})
+                            facts.append(i['then'])
+                            fact.add(i['then'])
 
     return interim_results
 
@@ -125,12 +143,14 @@ def results(facts, rules):
 time_start = time()
 #N = 100000
 #M = 1000
-rules = generate_simple_rules(100, 4, 10000)
-facts = generate_rand_facts(100, 1000)
-print("%d rules generated in %f seconds" % (1000,time()-time_start))
-
+rules = generate_simple_rules(100, 4, 10)
+print(rules,'\n')
+facts = generate_rand_facts(100, 5)
+#print("%d rules generated in %f seconds" % (1000,time()-time_start))
+print(facts,'\n')
 time_start = time()
 in_res = results(facts, rules)
 rez = time()-time_start
-print(rez)
-print("%d facts validated vs %d rules in %f seconds" % (1000,10000,rez))
+#print(rez)
+print(in_res,'\n')
+#print("%d facts validated vs %d rules in %f seconds" % (1000,10000,rez))
